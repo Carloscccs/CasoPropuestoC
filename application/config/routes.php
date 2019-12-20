@@ -52,3 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['login'] = 'welcome/ValidarUsuariov2';
+$route['CVL'] = 'welcome/index';
+$route['CVA'] = 'welcome/CargarVistaAlumno';
+$route['CVP'] = 'welcome/CargarVistaProfesor';
+$route['CVG'] = 'welcome/CargarVistaGuia';
