@@ -96,4 +96,61 @@ class Welcome extends CI_Controller {
 		}
 	}
 
+	function ObtenerPracticaAlumno(){
+		$Rut = $this->session->userdata('User')->Rut;
+		$Consulta = $this->datamodel->BuscarPracticaAlumno($Rut);
+		if($Consulta){
+			if($Consulta->num_rows() == 1){
+				$res = array(
+					'status'=>200,
+					'data'=>$Consulta->result()
+				);
+				$this->session->set_userdata('IdPractica', $Consulta->result()[0]->Id);
+				echo json_encode($res);
+			}else{
+				$res = array(
+					'status'=>404,
+					'data'=>0
+				);
+				echo json_encode($res);
+			}
+		}else{
+			$res = array(
+				'status'=>404,
+				'data'=>0
+			);
+			echo json_encode($res);
+		}
+		
+	}
+
+	function ObtenerBitacoraAlumno(){
+		$Rut = $this->session->userdata('User')->Rut;
+		if(isset($_SESSION['IdPractica'])){
+			$IdPractica = $this->session->userdata('IdPractica');
+			$consulta = $this->datamodel->ObtenerBitacoraAlumno($Rut,$IdPractica);
+			if($consulta){
+				$res = array(
+					'status'=>200,
+					'data'=>$consulta->result(),
+					'Origin'=>"welcome/obtenerbitacoraalumno"
+				);
+				echo json_encode($res);
+			
+			}else{
+				$res = array(
+					'status'=>404,
+					'data'=>0
+				);
+				echo json_encode($res);
+			}
+		}else{
+			$res = array(
+				'status'=>404,
+				'data'=>0
+			);
+			echo json_encode($res);
+		}
+	}
+
 }

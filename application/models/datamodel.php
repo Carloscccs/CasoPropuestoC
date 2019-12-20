@@ -28,6 +28,23 @@ class datamodel extends CI_Model {
         $this->db->where('Clave',$Clave);
         return $this->db->get();
     }
+
+    function BuscarPracticaAlumno($Rut){
+        $this->db->select('*');
+        $this->db->from('Alumno_practica');
+        $this->db->where('RutAlumno',$Rut);
+        $this->db->where('Estado','1');
+        return $this->db->get();
+    }
+
+    function ObtenerBitacoraAlumno($Rut,$IdAlumnoPractica){
+        $this->db->select('*');
+        $this->db->from('Bitacora');
+        $this->db->where('RutAutor',$Rut);
+        $this->db->where('Tipo',"0");
+        $this->db->where('IdAlumnoPractica',$IdAlumnoPractica);
+        return $this->db->get();
+    }
     
     
 }

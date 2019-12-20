@@ -57,3 +57,5 @@ $route['CVL'] = 'welcome/index';
 $route['CVA'] = 'welcome/CargarVistaAlumno';
 $route['CVP'] = 'welcome/CargarVistaProfesor';
 $route['CVG'] = 'welcome/CargarVistaGuia';
+$route['OPA'] = 'welcome/ObtenerPracticaAlumno';
+$route['OBA'] = 'welcome/ObtenerBitacoraAlumno';
