@@ -45,6 +45,18 @@ class datamodel extends CI_Model {
         $this->db->where('IdAlumnoPractica',$IdAlumnoPractica);
         return $this->db->get();
     }
+
+    function InsertarBitacora($Rut,$Texto,$Tipo,$IdAlumnoPractica){
+        $datetime = date('Y/m/d h:i');
+        $data = array(
+            "Texto"=>$Texto,
+            "Fecha"=>$datetime,
+            "Tipo"=>$Tipo,
+            "RutAutor"=>$Rut,
+            "IdAlumnopractica"=>$IdAlumnoPractica
+        );
+        return $this->db->insert('Bitacora',$data);
+    }
     
     
 }

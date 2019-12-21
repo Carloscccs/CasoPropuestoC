@@ -153,4 +153,41 @@ class Welcome extends CI_Controller {
 		}
 	}
 
+	public function CerrarSesion() {
+		$this->session->sess_destroy();
+		$this->index();
+	}
+
+	public function AgregarEntradaBitacora(){
+		$Texto = $this->input->post('txtTexto');
+		if($Texto != ""){
+			$Rut = $_SESSION["User"]->Rut;
+			$IdAlumnopractica = $_SESSION["IdPractica"];
+			$Tipo = 0;
+			$Consulta = $this->datamodel->InsertarBitacora($Rut,$Texto,$Tipo,$IdAlumnopractica);
+			if($Consulta){
+				$res = array(
+					'status'=>200,
+					'data'=>"Entrada agregada",
+					'Origin'=>"welcome/AgregarEntradaBitacora"
+				);
+				echo json_encode($res);
+			}else{
+				$res = array(
+					'status'=>404,
+					'data'=>"Error al agregar el registro a la base de datos",
+					'Origin'=>"welcome/AgregarEntradaBitacora"
+				);
+				echo json_encode($res);
+			}
+		}else{
+			$res = array(
+				'status'=>404,
+				'data'=>"No se ha escrito ningun texto",
+				'Origin'=>"welcome/AgregarEntradaBitacora"
+			);
+			echo json_encode($res);
+		}
+	}
+
 }

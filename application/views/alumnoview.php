@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cerrar sesion</a>
+                    <a class="nav-link" href="<?=site_url();?>/CS">Cerrar sesion</a>
                 </li>
             </ul>
         </div>
@@ -60,7 +60,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <h4>Mis bitacoras</h4>
             </div>
             <div class="col-5"></div>
-            <div class="col-3"><button class="btn btn-sm btn-success btn-block">Agregar bitacora</button></div>
+            <div class="col-3">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-sm btn-success btn-block" data-toggle="modal"
+                    data-target="#mdAgregarRegistro">
+                    Agregar bitacora
+                </button>
+            </div>
         </div>
         <div class="row">
             <div class="col-12">
@@ -76,6 +82,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </thead>
                     <tbody id="tbodyBitacora"></tbody>
                 </table>
+            </div>
+        </div>
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="mdAgregarRegistro" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Nueva entrada:</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form name="formAgregarBitacora" id="formAgregarBitacora">
+                            <div class="form-group">
+                                <label for="txtTexto">Maximo 300 caracteres:</label>
+                                <textarea class="form-control" name="txtTexto" id="txtTexto" rows="3"></textarea>
+                            </div>
+                            <button class="btn btn-success" type="submit">Guardar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
             </div>
         </div>
 
