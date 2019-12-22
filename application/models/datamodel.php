@@ -57,6 +57,21 @@ class datamodel extends CI_Model {
         );
         return $this->db->insert('Bitacora',$data);
     }
+
+    function ObtenerTextoBitacoraId($Id){
+        $this->db->select("*");
+        $this->db->from('Bitacora');
+        $this->db->where('Id',$Id);
+        return $this->db->get();
+    }
+
+    function ActualizarBitacora($Id,$Texto){
+        $this->db->where("Id",$Id);
+        $data = array(
+            "Texto"=>$Texto
+        );
+        return $this->db->update('Bitacora',$data);
+    }
     
     
 }

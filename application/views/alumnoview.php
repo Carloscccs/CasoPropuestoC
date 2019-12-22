@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div class="mx-auto order-0">
-            <a class="navbar-brand mx-auto" href="#">Navbar 2</a>
+            <a class="navbar-brand mx-auto" href="#">Alumno</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -105,6 +105,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <textarea class="form-control" name="txtTexto" id="txtTexto" rows="3"></textarea>
                             </div>
                             <button class="btn btn-success" type="submit">Guardar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="mdEditarRegistro" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Nueva entrada:</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form name="formAEditarBitacora" id="formAEditarBitacora">
+                            <div class="form-group">
+                                <label for="txtTexto">Maximo 300 caracteres:</label>
+                                <textarea class="form-control" name="txtTexto" id="txtTextoEdit" rows="3"></textarea>
+                            </div>
+                            <button class="btn btn-warning" type="submit">Editar</button>
                         </form>
                     </div>
                     <div class="modal-footer">

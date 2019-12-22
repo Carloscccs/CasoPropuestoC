@@ -190,4 +190,37 @@ class Welcome extends CI_Controller {
 		}
 	}
 
+
+	public function EditarEntradaBitacora(){
+		$Texto = $this->input->post('txtTexto');
+		$Id = $this->input->post('IdBitacora');
+		if($Texto != ""){
+			$Consulta = $this->datamodel->ActualizarBitacora($Id,$Texto);
+			if($Consulta){
+				$res = array(
+					'status'=>200,
+					'data'=>"Entrada editada",
+					'Origin'=>"welcome/EditarEntradaBitacora $Texto , $Id"
+				);
+				echo json_encode($res);
+			}else{
+				$res = array(
+					'status'=>404,
+					'data'=>"Error al editar el registro a la base de datos",
+					'Origin'=>"welcome/EditarEntradaBitacora"
+				);
+				echo json_encode($res);
+			}
+		}else{
+			$res = array(
+				'status'=>404,
+				'data'=>"No se ha escrito ningun texto",
+				'Origin'=>"welcome/EditarEntradaBitacora"
+			);
+			echo json_encode($res);
+		}
+	}
+
+	
+
 }

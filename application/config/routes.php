@@ -61,3 +61,4 @@ $route['OPA'] = 'welcome/ObtenerPracticaAlumno';
 $route['OBA'] = 'welcome/ObtenerBitacoraAlumno';
 $route['CS'] = 'welcome/CerrarSesion';
 $route['AEB'] = 'welcome/AgregarEntradaBitacora';
+$route['EEB'] = 'welcome/EditarEntradaBitacora';
