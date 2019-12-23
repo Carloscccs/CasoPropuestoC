@@ -85,6 +85,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<button class="btn btn-lg btn-warning btn-block my-2" type="submit"><i class="fas fa-sign-in-alt"></i>
 				Entrar</button>
 			<p class="mt-3 mb-2 text-danger">Proyecto de prueba</p>
+			<p>Acceso alumno(Rut, Contraseña): 111111111 , 123</p>
+			<p>Acceso profesor(Rut, Contraseña): Aun no implementado</p>
+			<p>Acceso guia(Rut, Contraseña): Aun no implementado</p>
 			<label class="error"
 				style="color:#f00; font-size:15px; text-align: center; font-weight: bold; margin-top: 0,5em;"><?php if (isset($error)) {echo $error;}?></label>
 		</form>
