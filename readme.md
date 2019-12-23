@@ -17,6 +17,7 @@ Todo los documentos generados como parte de la planeacion de guardaran en la car
 * Modelo de la BD
 * Codigo de la BD
 
+
 ## Desarrollo
 * [Codeigniter](https://codeigniter.com/) como framework de back-end para PHP.
 * [Bootstrap](https://getbootstrap.com/) como framework de front-end.
