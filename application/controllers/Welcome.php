@@ -5,7 +5,7 @@ class Welcome extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('datamodel');
+		$this->load->model('DataModel');
 	}
 	
 	public function index()
@@ -19,7 +19,7 @@ class Welcome extends CI_Controller {
 		$Rol = $this->input->post('slRol');
 
 		if($Rol == 0){
-			$User = $this->datamodel->BuscarAlumno($Rut,$Clave);
+			$User = $this->DataModel->BuscarAlumno($Rut,$Clave);
 			if($User->num_rows() == 1){
 				$data = array(
 					'User'=>$User->result()[0],
@@ -34,7 +34,7 @@ class Welcome extends CI_Controller {
 			}
 			
 		}else if($Rol == 1){
-			$User = $this->datamodel->BuscarProfesor($Rut,$Clave);
+			$User = $this->DataModel->BuscarProfesor($Rut,$Clave);
 			if($User->num_rows() == 1){
 				$data = array(
 					'User'=>$User->result()[0],
@@ -48,7 +48,7 @@ class Welcome extends CI_Controller {
             	$this->load->view('welcome_message',$data);
 			}
 		}else if($Rol == 2){
-			$User = $this->datamodel->BuscarGuia($Rut,$Clave);
+			$User = $this->DataModel->BuscarGuia($Rut,$Clave);
 			if($User->num_rows() == 1){
 				$data = array(
 					'User'=>$User->result()[0],
@@ -98,7 +98,7 @@ class Welcome extends CI_Controller {
 
 	function ObtenerPracticaAlumno(){
 		$Rut = $this->session->userdata('User')->Rut;
-		$Consulta = $this->datamodel->BuscarPracticaAlumno($Rut);
+		$Consulta = $this->DataModel->BuscarPracticaAlumno($Rut);
 		if($Consulta){
 			if($Consulta->num_rows() == 1){
 				$res = array(
@@ -128,7 +128,7 @@ class Welcome extends CI_Controller {
 		$Rut = $this->session->userdata('User')->Rut;
 		if(isset($_SESSION['IdPractica'])){
 			$IdPractica = $this->session->userdata('IdPractica');
-			$consulta = $this->datamodel->ObtenerBitacoraAlumno($Rut,$IdPractica);
+			$consulta = $this->DataModel->ObtenerBitacoraAlumno($Rut,$IdPractica);
 			if($consulta){
 				$res = array(
 					'status'=>200,
@@ -164,7 +164,7 @@ class Welcome extends CI_Controller {
 			$Rut = $_SESSION["User"]->Rut;
 			$IdAlumnopractica = $_SESSION["IdPractica"];
 			$Tipo = 0;
-			$Consulta = $this->datamodel->InsertarBitacora($Rut,$Texto,$Tipo,$IdAlumnopractica);
+			$Consulta = $this->DataModel->InsertarBitacora($Rut,$Texto,$Tipo,$IdAlumnopractica);
 			if($Consulta){
 				$res = array(
 					'status'=>200,
@@ -195,7 +195,7 @@ class Welcome extends CI_Controller {
 		$Texto = $this->input->post('txtTexto');
 		$Id = $this->input->post('IdBitacora');
 		if($Texto != ""){
-			$Consulta = $this->datamodel->ActualizarBitacora($Id,$Texto);
+			$Consulta = $this->DataModel->ActualizarBitacora($Id,$Texto);
 			if($Consulta){
 				$res = array(
 					'status'=>200,
