@@ -1,7 +1,7 @@
 # Proyecto "Sistema de gestion de practicas" [Demostrativo]
 
 ### Nota:
-Este sistema esta pensado suponiendo que exita otro que gestiones las practicas, los alumnos y los profesores, siendo la unica funcion de este dar la solucion a la problematica que se expondra a continuacion.
+Este sistema esta pensado suponiendo que exista otro que gestiones las practicas, los alumnos y los profesores, siendo la unica funcion de este dar la solucion a la problematica que se expondra a continuacion.
 
 * IMPORTANTE: 
   * Este proyecto es solo una muestra, no debe implementarse en un ambiente de produccion.
