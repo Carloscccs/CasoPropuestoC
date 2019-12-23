@@ -59,8 +59,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-4">
                 <h4>Mis bitacoras</h4>
             </div>
-            <div class="col-5"></div>
-            <div class="col-3">
+            <div class="col-4"></div>
+            <div class="col-4">
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-sm btn-success btn-block" data-toggle="modal"
                     data-target="#mdAgregarRegistro">
@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="alert alert-warning text-center d-none" role="alert" id="no_practica">
                     No hay ninguna practica activa
                 </div>
-                <table class="table table-responsive" id="tablaBitacora">
+                <table class="table table-bordered table-responsive-sm" id="tablaBitacora">
                     <thead>
                         <th>Id</th>
                         <th>Texto</th>
