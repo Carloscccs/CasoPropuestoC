@@ -72,6 +72,15 @@ class gestionModel extends CI_Model {
         );
         return $this->db->update('Bitacora',$data);
     }
+
+    function ObtenerPracticasProfesor($Rut){
+        $this->db->select('ap.Id as "Id", ap.RutAlumno as "RutAlumno", al.Nombre as "NombreAlumno", p.Nombre as "Practica", ap.FechaInicio as "FechaInicio", ap.FechaFin as "FechaFin", ap.RutGuia as "RutGuia"');
+        $this->db->from('Alumno_practica ap');
+        $this->db->join('Practica p','p.Id = ap.IdPractica');
+        $this->db->join('Alumno al','al.Rut = ap.RutAlumno');
+        $this->db->where('ap.RutProfesor',$Rut);
+        return $this->db->get();
+    }
     
     
 }

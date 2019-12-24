@@ -221,6 +221,32 @@ class Welcome extends CI_Controller {
 		}
 	}
 
+	public function ObtenerPracticasProfesor(){
+		$Rut = $this->session->userdata('User')->Rut;
+		$Consulta = $this->GestionModel->ObtenerPracticasProfesor($Rut);
+		if($Consulta){
+			if($Consulta->num_rows() == 1){
+				$res = array(
+					'status'=>200,
+					'data'=>$Consulta->result()
+				);
+				echo json_encode($res);
+			}else{
+				$res = array(
+					'status'=>404,
+					'data'=>0
+				);
+				echo json_encode($res);
+			}
+		}else{
+			$res = array(
+				'status'=>404,
+				'data'=>0
+			);
+			echo json_encode($res);
+		}
+	}
+
 	
 
 }
